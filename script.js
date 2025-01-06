@@ -7,17 +7,24 @@ async function getData() {
         throw new Error(`Response status: ${response.status}`);
       }
   
-      const aliGood = false;
+      let aliGood = false;
+
+      console.log(response);
+      
 
       const json = await response.json();
 
+      console.log(json);
+
       for (let index = 0; index < json.length; index++) {
-        if (json[index].queueType = "RANKED_SOLO_5x5"){
-          if (json[index].tier == "Masters" || json[index].tier == "Grandmasters" || json[index].tier == "Challenger") {
+        if (json[index].queueType === "RANKED_SOLO_5x5"){
+          
+          if (json[index].tier == "MASTERS" || json[index].tier == "GRANDMASTERS" || json[index].tier == "CHALLENGER") {
             aliGood = true;
           }
           
           getRank(aliGood, json[index].tier, json[index].rank);
+          break;
         };
         
       }
