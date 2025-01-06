@@ -9,12 +9,7 @@ async function getData() {
   
       let aliGood = false;
 
-      console.log(response);
-      
-
       const json = await response.json();
-
-      console.log(json);
 
       for (let index = 0; index < json.length; index++) {
         if (json[index].queueType === "RANKED_SOLO_5x5"){
